@@ -13,8 +13,8 @@ class Calculator:
         self.window.minsize(325, 500)
         self.window.title("Calculator")
 
-        self.total = ""
-        self.current_num = ""
+        self.total_expression = ""
+        self.current_expression = ""
         self.display_frame = self.create_display()
 
         self.total_label, self.label = self.create_display_labels()
@@ -54,11 +54,11 @@ class Calculator:
         return buttons
 
     def create_display_labels(self):
-        total_label = tk.Label(self.display_frame, text=self.total, anchor=tk.E, bg=DGRAY, fg=WHITE, padx=24, bd=0,
+        total_label = tk.Label(self.display_frame, text=self.total_expression, anchor=tk.E, bg=DGRAY, fg=WHITE, padx=24, bd=0,
                                font=["Arial", 16])
         total_label.pack(expand=True, fill="both")
 
-        label = tk.Label(self.display_frame, text=self.current_num, anchor=tk.E, bg=DGRAY, fg=WHITE, padx=24,  bd=0,
+        label = tk.Label(self.display_frame, text=self.current_expression, anchor=tk.E, bg=DGRAY, fg=WHITE, padx=24,  bd=0,
                          font=["Arial", 48, "bold"])
         label.pack(expand=True, fill="both")
 
@@ -118,52 +118,85 @@ class Calculator:
         self.create_change_sign()
 
     def add_to_expression(self, value):
-        self.current_num += str(value)
-        self.update_label()
+        if self.current_expression.endswith(" = "):
+            self.current_expression = ""
+
+        if self.current_expression == "Error":
+            self.current_expression = ""
+
+        if len(self.current_expression) < 11:
+            self.current_expression += str(value)
+            self.update_label()
 
 
     def append_operator(self, operator):
-        self.current_num += operator
-        self.total += self.current_num
-        self.current_num = ""
+        if self.total_expression.endswith(" = "):
+            self.total_expression = self.current_expression + operator
+            self.current_expression = ""
+
+        else:
+            self.current_expression += operator
+            self.total_expression += self.current_expression
+            self.current_expression = ""
+
         self.update_total_label()
         self.update_label()
 
     def clear(self):
-        self.current_num = ""
-        self.total = ""
+        self.current_expression = ""
+        self.total_expression = ""
         self.update_label()
         self.update_total_label()
 
     def square(self):
-        self.current_num = str(eval(f"{self.current_num}**2"))
+        self.current_expression = str(eval(f"{self.current_expression}**2"))
+        formatted_result = "{:.10g}".format(float(self.current_expression))
+        self.current_expression = formatted_result
         self.update_label()
 
     def square_root(self):
-        self.current_num = str(eval(f"{self.current_num}**0.5"))
+        self.current_expression = str(eval(f"{self.current_expression}**0.5"))
+        formatted_result = "{:.10g}".format(float(self.current_expression))
+        self.current_expression = formatted_result
         self.update_label()
 
+
     def change_sign(self):
-        if self.current_num == "":
-            self.current_num= "-"
-        elif self.current_num[0] == "-":
-            self.current_num = self.current_num[1:]
+        if self.current_expression == "":
+            self.current_expression= "-"
+        elif self.current_expression[0] == "-":
+            self.current_expression = self.current_expression[1:]
+            
+        elif "." in self.current_expression:
+            if self.current_expression.startswith("-"):
+                self.current_expression = self.current_expression[1:]
+            else:
+                self.current_expression = "-" + self.current_expression
         else:
-            self.current_num = str(-int(self.current_num))
+            if self.current_expression.startswith("-"):
+                self.current_expression = str(-int(self.current_expression))
+            else:
+                self.current_expression = str(-int(self.current_expression))
+
         self.update_label()
 
     def evaluate(self):
-        self.total += f"{self.current_num}"
+        self.total_expression += f"{self.current_expression}"
         self.update_total_label()
 
         try:
-            self.current_num = str(eval(self.total))
-            self.total = ""
+            result = eval(self.total_expression)
+
+            formatted_result = "{:.10g}".format(result)
+            self.current_expression = formatted_result
+
+            self.total_expression += " = "
 
         except Exception as e:
-            self.current_num = "Error"
+            self.current_expression = "Error"
 
         finally:
+            self.update_total_label()
             self.update_label()
 
     def keyboard(self):
@@ -175,13 +208,13 @@ class Calculator:
             self.window.bind(key, lambda event, operator=key: self.append_operator(operator))
 
     def update_total_label(self):
-        expression = self.total
+        expression = self.total_expression
         for operator, symbol in self.operations.items():
             expression = expression.replace(operator, f' {symbol} ')
         self.total_label.config(text=expression)
 
     def update_label(self):
-        self.label.config(text=self.current_num[:11])
+        self.label.config(text=self.current_expression[:11])
 
 if __name__ == "__main__":
     calc = Calculator()
