@@ -6,6 +6,9 @@ LGRAY = "#5A5A5A"
 DGRAY = "#212121"
 WHITE = "#EEEEEE"
 
+# factorial button?       1/x button?        percentage button?         pi button?            
+# paranthesis eventually maybe
+
 class Calculator:
     def __init__(self):
         self.window = tk.Tk()
@@ -20,10 +23,10 @@ class Calculator:
         self.total_label, self.label = self.create_display_labels()
 
         self.digits = {
-            7: (1, 1), 8: (1, 2), 9: (1, 3),
-            4: (2, 1), 5: (2, 2), 6: (2, 3),
-            1: (3, 1), 2: (3, 2), 3: (3, 3),
-            0: (4, 2), '.': (4, 3)
+            7: (2, 1), 8: (2, 2), 9: (2, 3),
+            4: (3, 1), 5: (3, 2), 6: (3, 3),
+            1: (4, 1), 2: (4, 2), 3: (4, 3),
+            0: (5, 2), '.': (5, 3)
         }
 
         self.operations = {"/": "\u00F7", "*": "\u00D7", "-": "-", "+": "+"}
@@ -32,8 +35,9 @@ class Calculator:
 
         self.buttons_frame.rowconfigure(0, weight=1)
 
-        for x in range(1, 5):
+        for x in range(1, 6):
             self.buttons_frame.rowconfigure(x, weight=1)
+        for x in range(1, 5):
             self.buttons_frame.columnconfigure(x, weight=1)
 
         self.create_digits_buttons()
@@ -72,7 +76,7 @@ class Calculator:
             button.grid(row=grid_value[0], column=grid_value[1], sticky=tk.NSEW, padx=1, pady=1)
 
     def create_operator_buttons(self):
-        i = 0
+        i = 1
         for operator, symbol in self.operations.items():
             button = tk.Button(self.buttons_frame, text=symbol,
                                 background=GRAY, foreground=WHITE, font=("Arial", 20), bd=0,
@@ -84,31 +88,37 @@ class Calculator:
         button = tk.Button(self.buttons_frame, text="C", bg=GRAY, fg=WHITE,
                            font=("Arial", 20), bd=0,
                            command=self.clear)
-        button.grid(row=0, column=1, sticky=tk.NSEW, padx=1, pady=1)
+        button.grid(row=0, column=1, columnspan=2, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_square_button(self):
         button = tk.Button(self.buttons_frame, text="x\u00b2", bg=GRAY, fg=WHITE,
                            font=("Arial", 20), bd=0,
                            command=self.square)
-        button.grid(row=0, column=2, sticky=tk.NSEW, padx=1, pady=1)
+        button.grid(row=1, column=2, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_square_root_button(self):
         button = tk.Button(self.buttons_frame, text="\u221ax", bg=GRAY, fg=WHITE,
                            font=("Arial", 20), bd=0,
                            command=self.square_root)
-        button.grid(row=0, column=3, sticky=tk.NSEW, padx=1, pady=1)
+        button.grid(row=1, column=3, sticky=tk.NSEW, padx=1, pady=1)
 
-    def create_equals_button(self):
-        button = tk.Button(self.buttons_frame, text="=", bg=WHITE, fg=GRAY,
-                           font=("Arial", 20), bd=0,
-                           command=self.evaluate)
-        button.grid(row=4, column=4, sticky=tk.NSEW, padx=1, pady=1)
+    def create_backspace_button(self):
+        button = tk.Button(self.buttons_frame, text="⌫", bg=GRAY, fg=WHITE,
+                                 font=("Arial", 20), bd=0,
+                                 command=self.backspace)
+        button.grid(row=0, column=3, columnspan=2, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_change_sign(self):
         button = tk.Button(self.buttons_frame, text="+/-",
                                 background=LGRAY, foreground=WHITE, font=("Arial", 24), bd=0,
                                 command=self.change_sign)
-        button.grid(row=4, column=1, sticky=tk.NSEW, padx=1, pady=1)
+        button.grid(row=5, column=1, sticky=tk.NSEW, padx=1, pady=1)
+
+    def create_equals_button(self):
+        button = tk.Button(self.buttons_frame, text="=", bg=WHITE, fg=GRAY,
+                           font=("Arial", 20), bd=0,
+                           command=self.evaluate)
+        button.grid(row=5, column=4, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_special_buttons(self):
         self.create_clear_button()
@@ -116,6 +126,7 @@ class Calculator:
         self.create_square_button()
         self.create_square_root_button()
         self.create_change_sign()
+        self.create_backspace_button()
 
     def add_to_expression(self, value):
         if self.current_expression.endswith(" = "):
@@ -160,6 +171,14 @@ class Calculator:
         self.current_expression = formatted_result
         self.update_label()
 
+    def backspace(self):
+        if self.current_expression == "Error":
+            self.clear()
+        elif self.total_expression.endswith(" = "):
+            self.current_expression = ""
+        else:
+            self.current_expression = self.current_expression[:-1]
+        self.update_label()
 
     def change_sign(self):
         if self.current_expression == "":
@@ -201,6 +220,7 @@ class Calculator:
 
     def keyboard(self):
         self.window.bind("<Return>", lambda event: self.evaluate())
+        self.window.bind("<BackSpace>", lambda event: self.backspace())
         for key in self.digits:
             self.window.bind(str(key), lambda event, digit=key: self.add_to_expression(digit))
 
