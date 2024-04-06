@@ -6,15 +6,16 @@ LGRAY = "#5A5A5A"
 DGRAY = "#212121"
 WHITE = "#EEEEEE"
 
+# number should clear display
 # factorial button?       1/x button?        percentage button?         pi button?            
 # paranthesis eventually maybe
 
 class Calculator:
     def __init__(self):
-        self.window = tk.Tk()
-        self.window.geometry("500x800")
-        self.window.minsize(325, 500)
-        self.window.title("Calculator")
+        self.root = tk.Tk()
+        self.root.geometry("500x800")
+        self.root.minsize(325, 500)
+        self.root.title("Calculator")
 
         self.total_expression = ""
         self.current_expression = ""
@@ -45,15 +46,15 @@ class Calculator:
         self.create_special_buttons()
         self.keyboard()
 
-        self.window.mainloop()
+        self.root.mainloop()
 
     def create_display(self):
-        display = tk.Frame(self.window, height=300)
+        display = tk.Frame(self.root, height=300)
         display.pack(expand=True, fill="both")
         return display
 
     def create_buttons(self):
-        buttons=tk.Frame(self.window, bg=DGRAY)
+        buttons=tk.Frame(self.root, bg=DGRAY)
         buttons.pack(expand=True, fill="both")
         return buttons
 
@@ -90,6 +91,18 @@ class Calculator:
                            command=self.clear)
         button.grid(row=0, column=1, columnspan=2, sticky=tk.NSEW, padx=1, pady=1)
 
+    def create_backspace_button(self):
+        button = tk.Button(self.buttons_frame, text="⌫", bg=GRAY, fg=WHITE,
+                                 font=("Arial", 20), bd=0,
+                                 command=self.backspace)
+        button.grid(row=0, column=3, columnspan=2, sticky=tk.NSEW, padx=1, pady=1)
+
+    def create_factorial_button(self):
+        button = tk.Button(self.buttons_frame, text="x!", bg=GRAY, fg=WHITE,
+                           font=("Arial", 20), bd=0,
+                           command=self.factorial)
+        button.grid(row=1, column=1, sticky=tk.NSEW, padx=1, pady=1)
+
     def create_square_button(self):
         button = tk.Button(self.buttons_frame, text="x\u00b2", bg=GRAY, fg=WHITE,
                            font=("Arial", 20), bd=0,
@@ -101,12 +114,6 @@ class Calculator:
                            font=("Arial", 20), bd=0,
                            command=self.square_root)
         button.grid(row=1, column=3, sticky=tk.NSEW, padx=1, pady=1)
-
-    def create_backspace_button(self):
-        button = tk.Button(self.buttons_frame, text="⌫", bg=GRAY, fg=WHITE,
-                                 font=("Arial", 20), bd=0,
-                                 command=self.backspace)
-        button.grid(row=0, column=3, columnspan=2, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_change_sign(self):
         button = tk.Button(self.buttons_frame, text="+/-",
@@ -127,9 +134,13 @@ class Calculator:
         self.create_square_root_button()
         self.create_change_sign()
         self.create_backspace_button()
+        self.create_factorial_button()
 
     def add_to_expression(self, value):
         if self.current_expression.endswith(" = "):
+            self.current_expression = ""
+
+        if self.total_expression.endswith(" = "):
             self.current_expression = ""
 
         if self.current_expression == "Error":
@@ -159,6 +170,29 @@ class Calculator:
         self.update_label()
         self.update_total_label()
 
+    def backspace(self):
+        if self.current_expression == "Error":
+            self.clear()
+        elif self.total_expression.endswith(" = "):
+            self.current_expression = ""
+        else:
+            self.current_expression = self.current_expression[:-1]
+        self.update_label()
+
+    def factorial(self):
+        try:
+            n = int(eval(self.current_expression))
+            if n < 0:
+                raise ValueError("Factorial is undefined for negative numbers")
+            result = 1
+            for i in range(1, n + 1):
+                result *= i
+            self.current_expression = str(result)
+            self.update_label()
+        except Exception as e:
+            self.current_expression = "Error"
+            self.update_label()
+
     def square(self):
         self.current_expression = str(eval(f"{self.current_expression}**2"))
         formatted_result = "{:.10g}".format(float(self.current_expression))
@@ -169,15 +203,6 @@ class Calculator:
         self.current_expression = str(eval(f"{self.current_expression}**0.5"))
         formatted_result = "{:.10g}".format(float(self.current_expression))
         self.current_expression = formatted_result
-        self.update_label()
-
-    def backspace(self):
-        if self.current_expression == "Error":
-            self.clear()
-        elif self.total_expression.endswith(" = "):
-            self.current_expression = ""
-        else:
-            self.current_expression = self.current_expression[:-1]
         self.update_label()
 
     def change_sign(self):
@@ -212,6 +237,7 @@ class Calculator:
             self.total_expression += " = "
 
         except Exception as e:
+            self.total_expression += " = "
             self.current_expression = "Error"
 
         finally:
@@ -219,13 +245,13 @@ class Calculator:
             self.update_label()
 
     def keyboard(self):
-        self.window.bind("<Return>", lambda event: self.evaluate())
-        self.window.bind("<BackSpace>", lambda event: self.backspace())
+        self.root.bind("<Return>", lambda event: self.evaluate())
+        self.root.bind("<BackSpace>", lambda event: self.backspace())
         for key in self.digits:
-            self.window.bind(str(key), lambda event, digit=key: self.add_to_expression(digit))
+            self.root.bind(str(key), lambda event, digit=key: self.add_to_expression(digit))
 
         for key in self.operations:
-            self.window.bind(key, lambda event, operator=key: self.append_operator(operator))
+            self.root.bind(key, lambda event, operator=key: self.append_operator(operator))
 
     def update_total_label(self):
         expression = self.total_expression
@@ -238,3 +264,4 @@ class Calculator:
 
 if __name__ == "__main__":
     calc = Calculator()
+    calc.run()
