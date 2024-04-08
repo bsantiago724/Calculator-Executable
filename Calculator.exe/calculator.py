@@ -6,9 +6,7 @@ LGRAY = "#5A5A5A"
 DGRAY = "#212121"
 WHITE = "#EEEEEE"
 
-# number should clear display
-# factorial button?       1/x button?        percentage button?         pi button?            
-# paranthesis eventually maybe
+# enter button fix
 
 class Calculator:
     def __init__(self):
@@ -181,6 +179,7 @@ class Calculator:
 
     def factorial(self):
         try:
+            self.total_expression = f"fact({self.current_expression})"
             n = int(eval(self.current_expression))
             if n < 0:
                 raise ValueError("Factorial is undefined for negative numbers")
@@ -188,21 +187,26 @@ class Calculator:
             for i in range(1, n + 1):
                 result *= i
             self.current_expression = str(result)
+            self.update_total_label()
             self.update_label()
         except Exception as e:
             self.current_expression = "Error"
             self.update_label()
 
     def square(self):
+        self.total_expression = f"sqr({self.current_expression})"
         self.current_expression = str(eval(f"{self.current_expression}**2"))
         formatted_result = "{:.10g}".format(float(self.current_expression))
         self.current_expression = formatted_result
+        self.update_total_label()
         self.update_label()
 
     def square_root(self):
+        self.total_expression = f"\u221a({self.current_expression})"
         self.current_expression = str(eval(f"{self.current_expression}**0.5"))
         formatted_result = "{:.10g}".format(float(self.current_expression))
         self.current_expression = formatted_result
+        self.update_total_label()
         self.update_label()
 
     def change_sign(self):
@@ -225,6 +229,33 @@ class Calculator:
         self.update_label()
 
     def evaluate(self):
+        if self.total_expression.endswith(")"):
+                return 
+        
+        if self.total_expression.endswith(" = "):
+
+            operands = []
+            operators = []
+            current_operand = []
+            for char in self.total_expression:
+                if char.isdigit() or char == '.':
+                    current_operand += char
+                else:
+                    if current_operand:
+                        operands.append(current_operand)
+                        current_operand = ''
+
+                    operators.append(char)
+
+            operands.append(current_operand)
+
+            self.total_expression = f"{self.current_expression}{operators[0]}{operands[1]}"
+            self.current_expression = str(eval(self.total_expression))
+            self.total_expression += " = "
+            self.update_total_label()
+            self.update_label()
+            return
+
         self.total_expression += f"{self.current_expression}"
         self.update_total_label()
 
@@ -264,4 +295,3 @@ class Calculator:
 
 if __name__ == "__main__":
     calc = Calculator()
-    calc.run()
