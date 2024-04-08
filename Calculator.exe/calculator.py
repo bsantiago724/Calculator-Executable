@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 
 GRAY = "#3D3D3D"
 LGRAY = "#5A5A5A"
