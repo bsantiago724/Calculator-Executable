@@ -135,9 +135,6 @@ class Calculator:
         self.create_factorial_button()
 
     def add_to_expression(self, value):
-        if self.current_expression.endswith(" = "):
-            self.current_expression = ""
-
         if self.total_expression.endswith(" = "):
             self.current_expression = ""
 
@@ -172,7 +169,9 @@ class Calculator:
         if self.current_expression == "Error":
             self.clear()
         elif self.total_expression.endswith(" = "):
-            self.current_expression = ""
+            self.total_expression = ""
+            self.update_total_label()
+            return
         else:
             self.current_expression = self.current_expression[:-1]
         self.update_label()
