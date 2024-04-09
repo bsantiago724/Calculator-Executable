@@ -1,11 +1,11 @@
 import tkinter as tk
+import customtkinter as ctk
 
 GRAY = "#3D3D3D"
 LGRAY = "#5A5A5A"
 DGRAY = "#212121"
 WHITE = "#EEEEEE"
-
-# enter button fix
+WHITE_HOVER = "#BABABA"
 
 class Calculator:
     def __init__(self):
@@ -56,11 +56,23 @@ class Calculator:
         return buttons
 
     def create_display_labels(self):
-        total_label = tk.Label(self.display_frame, text=self.total_expression, anchor=tk.E, bg=DGRAY, fg=WHITE, padx=24, bd=0,
+        total_label = tk.Label(self.display_frame,
+                               bg=DGRAY, 
+                               fg=WHITE, 
+                               text=self.total_expression, 
+                               anchor=tk.E, 
+                               padx=24, 
+                               bd=0,
                                font=["Arial", 16])
         total_label.pack(expand=True, fill="both")
 
-        label = tk.Label(self.display_frame, text=self.current_expression, anchor=tk.E, bg=DGRAY, fg=WHITE, padx=24,  bd=0,
+        label = tk.Label(self.display_frame, 
+                         bg=DGRAY, 
+                         fg=WHITE,
+                         text=self.current_expression, 
+                         anchor=tk.E, 
+                         padx=24,  
+                         bd=0,
                          font=["Arial", 48, "bold"])
         label.pack(expand=True, fill="both")
 
@@ -68,59 +80,104 @@ class Calculator:
 
     def create_digits_buttons(self):
         for digit, grid_value in self.digits.items():
-            button = tk.Button(self.buttons_frame, text=str(digit),
-                                background=LGRAY, foreground=WHITE, font=("Arial", 24, "bold"), bd=0,
-                                command=lambda x=digit: self.add_to_expression(x))
+            button = ctk.CTkButton(self.buttons_frame, 
+                                   text=str(digit),
+                                   fg_color=LGRAY, 
+                                   text_color=WHITE,
+                                   hover_color=GRAY, 
+                                   font=("Arial", 24, "bold"), 
+                                   corner_radius = 8,
+                                   command=lambda x=digit: self.add_to_expression(x))
             button.grid(row=grid_value[0], column=grid_value[1], sticky=tk.NSEW, padx=1, pady=1)
 
     def create_operator_buttons(self):
         i = 1
         for operator, symbol in self.operations.items():
-            button = tk.Button(self.buttons_frame, text=symbol,
-                                background=GRAY, foreground=WHITE, font=("Arial", 20), bd=0,
-                                command=lambda x=operator: self.append_operator(x))
+            button = ctk.CTkButton(self.buttons_frame, 
+                               text=symbol,
+                               fg_color=GRAY, 
+                               text_color=WHITE,
+                               hover_color=LGRAY,  
+                               font=("Arial", 20),
+                               corner_radius = 8,
+                               command=lambda x=operator: self.append_operator(x))
             button.grid(row=i, column=4, sticky=tk.NSEW, padx=1, pady=1)
             i += 1
 
     def create_clear_button(self):
-        button = tk.Button(self.buttons_frame, text="C", bg=GRAY, fg=WHITE,
-                           font=("Arial", 20), bd=0,
+        button = ctk.CTkButton(self.buttons_frame, 
+                           text="C", 
+                           fg_color=GRAY, 
+                           text_color=WHITE,
+                           hover_color=LGRAY, 
+                           font=("Arial", 20), 
+                           corner_radius = 8,
                            command=self.clear)
         button.grid(row=0, column=1, columnspan=2, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_backspace_button(self):
-        button = tk.Button(self.buttons_frame, text="⌫", bg=GRAY, fg=WHITE,
-                                 font=("Arial", 20), bd=0,
-                                 command=self.backspace)
+        button = ctk.CTkButton(self.buttons_frame, 
+                           text="⌫", 
+                           fg_color=GRAY, 
+                           text_color=WHITE,
+                           hover_color=LGRAY, 
+                           font=("Arial", 20), 
+                           corner_radius = 8,
+                           command=self.backspace)
         button.grid(row=0, column=3, columnspan=2, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_factorial_button(self):
-        button = tk.Button(self.buttons_frame, text="x!", bg=GRAY, fg=WHITE,
-                           font=("Arial", 20), bd=0,
+        button = ctk.CTkButton(self.buttons_frame, 
+                           text="x!", 
+                           fg_color=GRAY,
+                           text_color=WHITE,
+                           hover_color=LGRAY, 
+                           font=("Arial", 20), 
+                           corner_radius = 8,
                            command=self.factorial)
         button.grid(row=1, column=1, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_square_button(self):
-        button = tk.Button(self.buttons_frame, text="x\u00b2", bg=GRAY, fg=WHITE,
-                           font=("Arial", 20), bd=0,
+        button = ctk.CTkButton(self.buttons_frame, 
+                           text="x\u00b2", 
+                           fg_color=GRAY, 
+                           text_color=WHITE,
+                           hover_color=LGRAY, 
+                           font=("Arial", 20), 
+                           corner_radius = 8,
                            command=self.square)
         button.grid(row=1, column=2, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_square_root_button(self):
-        button = tk.Button(self.buttons_frame, text="\u221ax", bg=GRAY, fg=WHITE,
-                           font=("Arial", 20), bd=0,
+        button = ctk.CTkButton(self.buttons_frame, 
+                           text="\u221ax", 
+                           fg_color=GRAY, 
+                           text_color=WHITE,
+                           hover_color=LGRAY, 
+                           font=("Arial", 20), 
+                           corner_radius = 8,
                            command=self.square_root)
         button.grid(row=1, column=3, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_change_sign(self):
-        button = tk.Button(self.buttons_frame, text="+/-",
-                                background=LGRAY, foreground=WHITE, font=("Arial", 24), bd=0,
-                                command=self.change_sign)
+        button = ctk.CTkButton(self.buttons_frame, 
+                           text="+/-",
+                           fg_color=LGRAY, 
+                           text_color=WHITE,
+                           hover_color=GRAY, 
+                           font=("Arial", 24), 
+                           corner_radius = 8,
+                           command=self.change_sign)
         button.grid(row=5, column=1, sticky=tk.NSEW, padx=1, pady=1)
 
     def create_equals_button(self):
-        button = tk.Button(self.buttons_frame, text="=", bg=WHITE, fg=GRAY,
-                           font=("Arial", 20), bd=0,
+        button = ctk.CTkButton(self.buttons_frame, 
+                           text="=", 
+                           fg_color=WHITE, 
+                           text_color=GRAY,
+                           hover_color=WHITE_HOVER, 
+                           font=("Arial", 20), 
+                           corner_radius = 8,
                            command=self.evaluate)
         button.grid(row=5, column=4, sticky=tk.NSEW, padx=1, pady=1)
 
