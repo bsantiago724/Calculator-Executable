@@ -203,7 +203,10 @@ class Calculator:
 
 
     def append_operator(self, operator):
-        if self.total_expression.endswith(" = "):
+        if self.total_expression.endswith(tuple(self.operations.keys())):
+            self.total_expression = self.total_expression[:-1] + operator
+
+        elif self.total_expression.endswith(" = "):
             self.total_expression = self.current_expression + operator
             self.current_expression = ""
 
@@ -249,20 +252,28 @@ class Calculator:
             self.update_label()
 
     def square(self):
-        self.total_expression = f"sqr({self.current_expression})"
-        self.current_expression = str(eval(f"{self.current_expression}**2"))
-        formatted_result = "{:.10g}".format(float(self.current_expression))
-        self.current_expression = formatted_result
-        self.update_total_label()
-        self.update_label()
+        try:
+            self.total_expression = f"sqr({self.current_expression})"
+            self.current_expression = str(eval(f"{self.current_expression}**2"))
+            formatted_result = "{:.10g}".format(float(self.current_expression))
+            self.current_expression = formatted_result
+            self.update_total_label()
+            self.update_label()
+        except Exception as e:
+            self.current_expression = "Error"
+            self.update_label() 
 
     def square_root(self):
-        self.total_expression = f"\u221a({self.current_expression})"
-        self.current_expression = str(eval(f"{self.current_expression}**0.5"))
-        formatted_result = "{:.10g}".format(float(self.current_expression))
-        self.current_expression = formatted_result
-        self.update_total_label()
-        self.update_label()
+        try:
+            self.total_expression = f"\u221a({self.current_expression})"
+            self.current_expression = str(eval(f"{self.current_expression}**0.5"))
+            formatted_result = "{:.10g}".format(float(self.current_expression))
+            self.current_expression = formatted_result
+            self.update_total_label()
+            self.update_label()
+        except Exception as e:
+            self.current_expression = "Error"
+            self.update_label() 
 
     def change_sign(self):
         if self.current_expression == "":
@@ -286,9 +297,8 @@ class Calculator:
     def evaluate(self):
         if self.total_expression.endswith(")"):
                 return 
-        
-        if self.total_expression.endswith(" = "):
 
+        if self.total_expression.endswith(" = "):
             operands = []
             operators = []
             current_operand = []
@@ -310,7 +320,7 @@ class Calculator:
             self.update_total_label()
             self.update_label()
             return
-
+        
         self.total_expression += f"{self.current_expression}"
         self.update_total_label()
 
