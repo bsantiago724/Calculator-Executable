@@ -1,5 +1,5 @@
 ('C:\\Users\\bsant\\Desktop\\Projects\\Python '
- 'Projects\\Calculator.exe\\build\\calculator\\PYZ-00.pyz',
+ 'Projects\\Calculator-Executable\\Calculator.exe\\build\\calculator\\PYZ-00.pyz',
  [('PIL',
    'C:\\Users\\bsant\\AppData\\Roaming\\Python\\Python311\\site-packages\\PIL\\__init__.py',
    'PYMODULE'),
@@ -479,175 +479,175 @@
    'PYMODULE'),
   ('customtkinter',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.ctk_input_dialog',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\ctk_input_dialog.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\ctk_input_dialog.py',
    'PYMODULE'),
   ('customtkinter.windows.ctk_tk',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\ctk_tk.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\ctk_tk.py',
    'PYMODULE'),
   ('customtkinter.windows.ctk_toplevel',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\ctk_toplevel.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\ctk_toplevel.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.appearance_mode',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\appearance_mode\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\appearance_mode\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.appearance_mode.appearance_mode_base_class',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\appearance_mode\\appearance_mode_base_class.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\appearance_mode\\appearance_mode_base_class.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.appearance_mode.appearance_mode_tracker',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\appearance_mode\\appearance_mode_tracker.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\appearance_mode\\appearance_mode_tracker.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_rendering',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\core_rendering\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\core_rendering\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_rendering.ctk_canvas',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\core_rendering\\ctk_canvas.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\core_rendering\\ctk_canvas.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_rendering.draw_engine',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\core_rendering\\draw_engine.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\core_rendering\\draw_engine.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_widget_classes',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\core_widget_classes\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\core_widget_classes\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_widget_classes.ctk_base_class',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\core_widget_classes\\ctk_base_class.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\core_widget_classes\\ctk_base_class.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_widget_classes.dropdown_menu',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\core_widget_classes\\dropdown_menu.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\core_widget_classes\\dropdown_menu.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_button',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_button.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_button.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_checkbox',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_checkbox.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_checkbox.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_combobox',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_combobox.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_combobox.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_entry',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_entry.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_entry.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_frame',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_frame.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_frame.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_label',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_label.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_label.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_optionmenu',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_optionmenu.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_optionmenu.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_progressbar',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_progressbar.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_progressbar.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_radiobutton',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_radiobutton.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_radiobutton.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_scrollable_frame',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_scrollable_frame.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_scrollable_frame.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_scrollbar',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_scrollbar.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_scrollbar.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_segmented_button',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_segmented_button.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_segmented_button.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_slider',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_slider.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_slider.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_switch',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_switch.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_switch.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_tabview',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_tabview.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_tabview.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_textbox',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_textbox.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\ctk_textbox.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.font',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\font\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\font\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.font.ctk_font',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\font\\ctk_font.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\font\\ctk_font.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.font.font_manager',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\font\\font_manager.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\font\\font_manager.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.image',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\image\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\image\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.image.ctk_image',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\image\\ctk_image.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\image\\ctk_image.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.scaling',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\scaling\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\scaling\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.scaling.scaling_base_class',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\scaling\\scaling_base_class.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\scaling\\scaling_base_class.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.scaling.scaling_tracker',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\scaling\\scaling_tracker.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\scaling\\scaling_tracker.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.theme',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\theme\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\theme\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.theme.theme_manager',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\theme\\theme_manager.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\theme\\theme_manager.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.utility',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\utility\\__init__.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\utility\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.utility.utility_functions',
    'C:\\Users\\bsant\\Desktop\\Projects\\Python '
-   'Projects\\Calculator.exe\\customtkinter\\windows\\widgets\\utility\\utility_functions.py',
+   'Projects\\Calculator-Executable\\Calculator.exe\\customtkinter\\windows\\widgets\\utility\\utility_functions.py',
    'PYMODULE'),
   ('darkdetect',
    'C:\\Users\\bsant\\AppData\\Roaming\\Python\\Python311\\site-packages\\darkdetect\\__init__.py',
