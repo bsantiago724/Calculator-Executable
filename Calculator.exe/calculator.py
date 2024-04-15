@@ -1,11 +1,13 @@
 import tkinter as tk
 import customtkinter as ctk
+from ctypes import windll, byref, sizeof, c_int
 
 GRAY = "#3D3D3D"
 LGRAY = "#5A5A5A"
 DGRAY = "#212121"
 WHITE = "#EEEEEE"
 WHITE_HOVER = "#BABABA"
+TITLE = 0x00212121
 
 class Calculator:
     def __init__(self):
@@ -13,6 +15,8 @@ class Calculator:
         self.root.geometry("500x800")
         self.root.minsize(325, 500)
         self.root.title("Calculator")
+        self.root.iconbitmap('transparent.ico')
+        self.root.configure(bg=DGRAY)
 
         self.total_expression = ""
         self.current_expression = ""
@@ -37,7 +41,8 @@ class Calculator:
             self.buttons_frame.rowconfigure(x, weight=1)
         for x in range(1, 5):
             self.buttons_frame.columnconfigure(x, weight=1)
-
+            
+        self.change_title_bar_color()
         self.create_digits_buttons()
         self.create_operator_buttons()
         self.create_special_buttons()
@@ -45,14 +50,22 @@ class Calculator:
 
         self.root.mainloop()
 
+    def change_title_bar_color(self):
+        try:
+            HWND = windll.user32.GetParent(self.root.winfo_id())
+            DWMWA_ATTRIBUTE = 35
+            windll.dwmapi.DwmSetWindowAttribute(HWND, DWMWA_ATTRIBUTE, byref(c_int(TITLE)), sizeof(c_int))
+        except Exception as e:
+            print("Error changing title bar color:", e)
+
     def create_display(self):
         display = tk.Frame(self.root, height=300)
-        display.pack(expand=True, fill="both")
+        display.pack(expand=True, fill="both", padx=2, pady=2)
         return display
 
     def create_buttons(self):
         buttons=tk.Frame(self.root, bg=DGRAY)
-        buttons.pack(expand=True, fill="both")
+        buttons.pack(expand=True, fill="both", padx=2, pady=2)
         return buttons
 
     def create_display_labels(self):
@@ -203,7 +216,11 @@ class Calculator:
 
 
     def append_operator(self, operator):
-        if self.total_expression.endswith(tuple(self.operations.keys())):
+        if self.total_expression.endswith(")"):
+            self.total_expression = self.current_expression + operator
+            self.current_expression = ""
+        
+        elif self.total_expression.endswith(tuple(self.operations.keys())):
             self.total_expression = self.total_expression[:-1] + operator
 
         elif self.total_expression.endswith(" = "):
